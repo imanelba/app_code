@@ -24,7 +24,7 @@ $result = $conn->query($sql);
 </head>
 
 <header>
-    <img class="i" src="logo.png" alt="">
+    <img class="i" src="imgg/logo.png" alt="">
       <nav>
           <ul>
              <li><a href="patient_page.php">Patient</a></li>
