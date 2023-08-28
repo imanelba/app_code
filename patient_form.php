@@ -6,7 +6,7 @@
 <body>
 <?php
    
-   include "connexion_database.php";
+   include "con_database.php";
 
     if (isset($_GET['ID_PATIENT'])) {
         $id = $_GET['ID_PATIENT'];
@@ -19,7 +19,9 @@
 
            
 ?>
-        <form action="update.php?ID=<?php echo $_GET['ID_PATIENT']; ?>" method="post">
+        <form action="update.php?type=patient&ID=<?php echo $_GET['ID_PATIENT']; ?>" method="post">
+
+            <input type="hidden" name="type" value="patient">        
 
             <label for="FIRST_NAME">First Name:</label>
             <input type="text" name="FIRST_NAME" value="<?php echo $patientData['FIRST_NAME']; ?>">
@@ -60,7 +62,9 @@
         } 
     } else {
 ?>
-    <form action="create.php" method="post">
+    <form action="create.php?type=patientt"   method="post">
+
+        <input type="hidden" name="type" value="patient">
 
         <label for="FIRST_NAME">First Name:</label>
         <input type="text" name="FIRST_NAME" placeholder="First Name">

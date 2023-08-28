@@ -1,6 +1,6 @@
 <?php 
 
-include "connexion_database.php";
+include "con_database.php";
 
 $sql = "SELECT * FROM patient";
 
@@ -23,7 +23,7 @@ $result = $conn->query($sql);
 </head>
 
 <header>
-    <img class="i" src="logo.png" alt="">
+    <img class="i" src="imgg/logo.png" alt="">
       <nav>
           <ul>
              <li><a href="patient_page.php">Patient</a></li>
@@ -38,8 +38,10 @@ $result = $conn->query($sql);
 <body>
 
     <div class="container">
+       
+        <br>
 
-        <h2>users</h2>
+        <h2>Specific appointements</h2>
 
 <table class="table">
 

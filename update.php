@@ -1,19 +1,20 @@
 <?php
-include "connexion_database.php";
+include "con_database.php";
 
-if (isset($_POST['submit_update_rdv'])) {
+if (isset($_GET['type'])) {
+    if ($_GET['type'] === 'appointement') {
+     if (isset($_POST['submit_update_rdv'])) {
     
-    $id = $_GET['ID'];
+         $id = $_GET['ID'];
 
-    $date = $_POST['DATE'];
-    $begining_time = $_POST['BEGINING_TIME'];
-    $end_time = $_POST['END_TIME'];
-    $motive = $_POST['MOTIVE'];
+         $date = $_POST['DATE'];
+         $begining_time = $_POST['BEGINING_TIME'];
+         $end_time = $_POST['END_TIME'];
+         $motive = $_POST['MOTIVE'];
 
-    $updateQuery = "UPDATE `rdv` SET `DATE` = ?, `BEGINING_TIME` = ?, `END_TIME` = ?, `MOTIVE` = ? WHERE `ID_RDV` = ?";
-
-    $stmt = $conn->prepare($updateQuery);
-    $stmt->bind_param("ssssi", $date, $begining_time, $end_time, $motive, $id);
+         $updateQuery = "UPDATE `rdv` SET `DATE` = ?, `BEGINING_TIME` = ?, `END_TIME` = ?, `MOTIVE` = ? WHERE `ID_RDV` = ?";
+         $stmt = $conn->prepare($updateQuery);
+         $stmt->bind_param("ssssi", $date, $begining_time, $end_time, $motive, $id);
 
     if ($stmt->execute()) {
 
@@ -24,7 +25,11 @@ if (isset($_POST['submit_update_rdv'])) {
     }
 
     $stmt->close();
-} elseif (isset($_POST['submit_update_patient'])) {
+}
+}
+} elseif ($_GET['type'] === 'patient') {
+ if (isset($_POST['submit_update_patient'])) {
+   
     $id = $_GET['ID'];
 
     $first_name = $_POST['FIRST_NAME'];
@@ -38,6 +43,7 @@ if (isset($_POST['submit_update_rdv'])) {
     $health_insurance = $_POST['HEALTH_INSURANCE'];
     $emergency_contact = $_POST['EMERGENCY_CONTACT'];
     $emergency_number = $_POST['EMERGENCY_NUMBERR'];
+    //$id_utilisateur = 1;
 
     $updateQuery = "UPDATE `patient` SET `FIRST_NAME` = ?, `LAST_NAME` = ?, `YEAR_OF_BIRTH` = ?, `GENDER` = ?, `CIN` = ?, `ADDRESS` = ?, `EMAIL` = ?, `PHONE_NUMBER` = ?, `HEALTH_INSURANCE` = ?, `EMERGENCY_CONTACT` = ?, `EMERGENCY_NUMBERR` = ? WHERE `ID_PATIENT` = ?";
 
@@ -51,6 +57,7 @@ if (isset($_POST['submit_update_rdv'])) {
     }
 
     $stmt->close();
+}
 }
 
 $conn->close();

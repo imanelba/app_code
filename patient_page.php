@@ -1,6 +1,6 @@
 <?php 
 
-include "connexion_database.php";
+include "con_database.php";
 
 include "search_patient.php"; 
 
@@ -44,7 +44,7 @@ $result = $conn->query($sql);
     <div class="container">
 
         <h2>Patient list</h2>
-        <h1><a href="create.php?type=patient">Add Patient</a></h1>
+        <h1><a href="patient_form.php?type=patientt">Add Patient</a></h1>
 
         <form action="patient_page.php" method="GET" class="form-inline">
         <div class="form-group">
@@ -85,7 +85,7 @@ $result = $conn->query($sql);
 
         <th>Emergency Contact</th>
 
-        <th>cEmergency Number</th>
+        <th>Emergency Number</th>
 
         
 

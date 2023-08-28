@@ -5,7 +5,7 @@
 </head>
 <body>
 <?php
-    include "connexion_database.php";
+    include "con_database.php";
 
     if (isset($_GET['ID_RDV'])) {
         $id = $_GET['ID_RDV'];
@@ -27,6 +27,9 @@
             }
 ?>
             <form action="update.php?type=appointment&ID=<?php echo $_GET['ID_RDV']; ?>" method="post">
+
+                <input type="hidden" name="type" value="appointement">
+
                 <p>Nom du patient : <?php echo $patientFirstName . ' ' . $patientLastName; ?></p>
                 <label for="DATE">Date:</label>
                 <input type="text" name="DATE" value="<?php echo $appointmentData['DATE']; ?>"><br>
@@ -54,6 +57,9 @@
                     }
                 ?>
             </select><br>
+
+            <input type="hidden" name="type" value="appointement">
+
             <label for="DATE">Date:</label>
             <input type="text" name="DATE" placeholder="Date"><br>
             <label for="BEGINING_TIME">Begining Time:</label>

@@ -5,7 +5,7 @@
 </head>
 <body>
 <?php
-    include "connexion_database.php";
+    include "con_database.php";
 
     if (isset($_GET['ID_PATIENT'])) {
         $id = $_GET['ID_PATIENT'];

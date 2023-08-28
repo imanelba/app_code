@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +8,8 @@
     
     <?php
     
-    include "patient_read_form.php";
+    include"con_database.php";
+;    include "patient_read_form.php";
 
      ?>
 </body>

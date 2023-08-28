@@ -1,5 +1,6 @@
 <?php
-include "connexion_database.php";
+
+include "con_database.php";
 
 if (isset($_GET['search'])) {
     $search_query = $_GET['search'];
@@ -16,5 +17,5 @@ if (isset($_GET['search'])) {
     }
 }
 
-$conn->close();
+//$conn->close();
 ?>
