@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root"; 
 $password = ""; 
-$dbname = "cureapp"; 
+$dbname = "app_cure"; 
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
