@@ -52,11 +52,11 @@ $result = $conn->query($sql);
 
         <tr>
 
+        <th>ID</th>
+
         <th>First Name</th>
 
         <th>Last Name</th>
-
-        <th>ID</th>
 
         <th>Date</th>
 
@@ -83,6 +83,8 @@ $result = $conn->query($sql);
         ?>
 
                     <tr>
+
+                    <td><?php echo $row['ID_RDV']; ?></td>
 
                     <td><?php echo $row['FIRST_NAME']; ?></td>
 
