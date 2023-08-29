@@ -53,6 +53,31 @@ if (isset($_GET['type'])) {
                   </script>';
         }
     }
+    elseif ($type === "consultation" && isset($_GET['ID'])) {
+        $id = $_GET['ID'];
+
+        if (isset($_GET['confirm']) && $_GET['confirm'] === "true") {
+            $stmt = $conn->prepare("DELETE FROM `consultation` WHERE `ID_CONSU` = ?");
+            $stmt->bind_param("i", $id);
+
+            if ($stmt->execute()) {
+                echo "Consultation supprimé avec succès.";
+            } else {
+                echo "Erreur lors de la suppression de la consultation : " . $stmt->error;   //_3ewdi smiyat
+            }
+
+            $stmt->close();
+        } else {
+            echo '<script>
+                    var result = confirm("Êtes-vous sûr de vouloir supprimer cette consultation ?");
+                    if (result) {
+                        window.location.href = "delete.php?type=consultation&ID=' . $id . '&confirm=true";
+                    } else {
+                        window.location.href = "consultation_page.php";
+                    }
+                  </script>';
+        }
+    }
 }
 
 $conn->close();

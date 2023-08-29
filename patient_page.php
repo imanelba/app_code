@@ -32,6 +32,8 @@ $result = $conn->query($sql);
 
             <li><a href="appointement_page.php">Appointement</a></li>
 
+            <li><a href="consultation_page.php">Consultation</a></li>
+
             <li><a href="deconnexion_page.php">Logout</a></li>
       
           </ul>
@@ -44,7 +46,7 @@ $result = $conn->query($sql);
     <div class="container">
 
         <h2>Patient list</h2>
-        <h1><a href="patient_form.php?type=patientt">Add Patient</a></h1>
+        <h1><a href="patient_form.php?type=patient">Add Patient</a></h1>
 
         <form action="patient_page.php" method="GET" class="form-inline">
         <div class="form-group">
@@ -134,7 +136,7 @@ $result = $conn->query($sql);
 
                     
 
-                    <td><a class="btn btn-info" href="update.php?ID=<?php echo $row['ID_PATIENT']; ?>">Edit</a>&nbsp;<a class="btn btn-danger" href="view.php?ID=<?php echo $row['ID_PATIENT']; ?>">View</a>&nbsp;<a class="btn btn-danger" href="delete.php?type=patient&ID=<?php echo $row['ID_PATIENT']; ?>">Delete</a</td>
+                    <td><a class="btn btn-info" href="update.php?ID=<?php echo $row['ID_PATIENT']; ?>">Edit</a>&nbsp;<a class="btn btn-danger" href="create.php?type=consultation&ID=<?php echo $row['ID_PATIENT']; ?>">C</a>&nbsp;<a class="btn btn-danger" href="delete.php?type=patient&ID=<?php echo $row['ID_PATIENT']; ?>">Delete</a</td>
 
                     </tr>                       
 

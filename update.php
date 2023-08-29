@@ -27,7 +27,7 @@ if (isset($_GET['type'])) {
     $stmt->close();
 }
 }
-} elseif ($_GET['type'] === 'patient') {
+ elseif ($_GET['type'] === 'patient') {
  if (isset($_POST['submit_update_patient'])) {
    
     $id = $_GET['ID'];
@@ -58,6 +58,37 @@ if (isset($_GET['type'])) {
 
     $stmt->close();
 }
+}
+elseif ($_GET['type'] === 'consultation') {
+    if (isset($_POST['submit_update_consultation'])) {
+      
+       $id = $_GET['ID'];
+   
+       $height = $_POST['HEIGHT'];
+       $weight = $_POST['WEIGHT'];
+       $age = $_POST['AGE'];     //3ewdi_smiyat
+       $blood_type = $_POST['BLOOD_TYPE'];
+       $allergy = $_POST['ALLERGY'];
+       $previous_diseases = $_POST['PREVIOUS_DISEASES'];
+       $disease = $_POST['DISEASE'];
+       $treatement = $_POST['TREATEMENT'];
+       $conclusion = $_POST['CONCLUSION'];
+       //$id_utilisateur = 1;
+   
+       $updateQuery = "UPDATE `consultation` SET `HEIGHT` = ?, `WEIGHT` = ?, `AGE` = ?, `BLOOD_TYPE` = ?, `ALLERGY` = ?, `PREVIOUS_DISEASES` = ?, `DISEASE` = ?, `TREATEMENT` = ?, `CONCLUSION` = ? WHERE `ID_CONSU` = ?";
+   
+       $stmt = $conn->prepare($updateQuery);
+       $stmt->bind_param("sssssssssi", $height, $weight, $age, $blood_type, $allergy, $previous_diseases, $disease, $treatement, $conclusion, $id);
+   
+       if ($stmt->execute()) {
+           echo "Informations du patient mises à jour avec succès.";
+       } else {
+           echo "Erreur lors de la mise à jour des informations du patient : " . $stmt->error;
+       }
+   
+       $stmt->close();
+   }
+   }
 }
 
 $conn->close();

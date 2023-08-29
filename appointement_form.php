@@ -26,7 +26,7 @@
                 $patientLastName = $patientInfo['LAST_NAME'];
             }
 ?>
-            <form action="update.php?type=appointment&ID=<?php echo $_GET['ID_RDV']; ?>" method="post">
+            <form action="update.php?type=appointement&ID=<?php echo $_GET['ID_RDV']; ?>" method="post">
 
                 <input type="hidden" name="type" value="appointement">
 
@@ -39,13 +39,13 @@
                 <input type="date" name="END_TIME" value="<?php echo $appointmentData['END_TIME']; ?>"><br>
                 <label for="MOTIVE">Motive:</label>
                 <input type="text" name="MOTIVE" value="<?php echo $appointmentData['MOTIVE']; ?>"><br>
-                <input type="submit" name="submit_update_appointment" value="Update">
+                <input type="submit" name="submit_update_appointement" value="Update">
             </form>
 <?php
         } 
     } else {
 ?>
-        <form action="create.php?type=appointment" method="post">
+        <form action="create.php?type=appointement" method="post">
             <label for="patient_id">Patient:</label>
             <select name="patient_id" id="patient_id">
                 <?php
@@ -68,7 +68,7 @@
             <input type="date" name="END_TIME" placeholder="End Time"><br>
             <label for="MOTIVE">Motive:</label>
             <input type="text" name="MOTIVE" placeholder="Motive"><br>
-            <input type="submit" name="submit_create_appointment" value="Submit">
+            <input type="submit" name="submit_create_appointement" value="Submit">
         </form>
 <?php
     }

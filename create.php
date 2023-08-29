@@ -57,6 +57,43 @@ if (isset($_POST['type']) && $_POST['type'] === 'patient') {
             $stmt->close();
         }
     }
+    elseif (isset($_POST['type']) && $_POST['type'] === 'consultation') {
+        
+        if (isset($_POST['submit_create_consultation'])) {
+        
+       
+            $height = $_POST['HEIGHT'];
+            $weight = $_POST['WEIGHT'];
+            $age = $_POST['AGE'];     
+            $blood_type = $_POST['BLOOD_TYPE'];
+            $allergy = $_POST['ALLERGY'];
+            $previous_diseases = $_POST['PREVIOUS_DISEASES'];
+            $disease = $_POST['DISEASE'];
+            $treatement = $_POST['TREATEMENT'];
+            $conclusion = $_POST['CONCLUSION'];
+           
+           // $id_utilisateur = 1;
+
+
+         $sql = "INSERT INTO `consultation` (`HEIGHT`, `WEIGHT`, `AGE`, `BLOOD_TYPE`, `ALLERGY`, `PREVIOUS_DISEASES`, `DISEASE`, `TREATEMENT`, `CONCLUSION`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+         $stmt = $conn->prepare($sql);
+         $stmt->bind_param("sssssssss", $height, $weight, $age, $blood_type,$allergy,$previous_diseases,$disease,$treatement,$conclusion);
+
+         if ($stmt->execute()) {
+             echo "Nouvelle consultation créé avec succès.";
+         } else {
+             echo "Erreur lors de la création de la consultation : " . $stmt->error;
+         }
+
+         $stmt->close();
+        }
+    }
+
+
+
+
+
 }
 
 $conn->close();

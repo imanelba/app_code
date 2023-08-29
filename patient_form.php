@@ -62,7 +62,7 @@
         } 
     } else {
 ?>
-    <form action="create.php?type=patientt"   method="post">
+    <form action="create.php?type=patient"   method="post">
 
         <input type="hidden" name="type" value="patient">
 

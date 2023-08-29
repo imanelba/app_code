@@ -43,8 +43,8 @@ $result = $conn->query($sql);
 
     <div class="container">
 
-        <h2>Appointement List</h2>
-        <h1><a href="appointement_form.php?type=appointement">Add Appointement</a></h1>
+        <h2>Consultation List</h2>
+        <h1><a href="consultattation_form.php?type=consultation">Add Consultation</a></h1>
 
 <table class="table">
 
@@ -52,19 +52,24 @@ $result = $conn->query($sql);
 
         <tr>
 
-        <th>First Name</th>
+        <th>Height</th>
 
-        <th>Last Name</th>
+        <th>Weight</th>
 
-        <th>ID</th>
+        <th>Age</th>
 
-        <th>Date</th>
+        <th>Blood Type</th>
 
-        <th>Begining Time</th>
+        <th>Allergy</th>
 
-        <th>End Time</th>
+        <th>Previous Diseases</th>
 
-        <th>Motive</th>
+        <th>Disease</th>
+
+        <th>Treatement</th>
+
+        <th>Conclusion</th>
+
 
 
     </tr>
@@ -84,21 +89,25 @@ $result = $conn->query($sql);
 
                     <tr>
 
-                    <td><?php echo $row['FIRST_NAME']; ?></td>
+                    <td><?php echo $row['HEIGHT']; ?></td>
 
-                    <td><?php echo $row['LAST_NAME']; ?></td>
+                    <td><?php echo $row['WEIGHT']; ?></td>
 
-                    <td><?php echo $row['ID_RDV']; ?></td>
+                    <td><?php echo $row['AGE']; ?></td>
 
-                    <td><?php echo $row['DATE']; ?></td>
+                    <td><?php echo $row['BLOOD_TYPE']; ?></td>
 
-                    <td><?php echo $row['BEGINING_TIME']; ?></td>
+                    <td><?php echo $row['ALLERGY']; ?></td>
 
-                    <td><?php echo $row['END_TIME']; ?></td>
+                    <td><?php echo $row['PREVIOUS_DISEASES']; ?></td>
 
-                    <td><?php echo $row['MOTIVE']; ?></td>
+                    <td><?php echo $row['DISEASE']; ?></td>
 
-                    <td><a class="btn btn-info" href="update.php?ID=<?php echo $row['ID_RDV']; ?>">Edit</a>&nbsp;<a class="btn btn-danger" href="specific_appointement.php">View</a>&nbsp;<a class="btn btn-danger" href="delete.php?type=rdv&ID=<?php echo $row['ID_RDV']; ?>">Delete</a></td>
+                    <td><?php echo $row['TREATEMENT']; ?></td>
+
+                    <td><?php echo $row['CONCLUSION']; ?></td>
+
+                    <td><a class="btn btn-info" href="update.php?ID=<?php echo $row['ID_CONSU']; ?>">Edit</a>&nbsp;<a class="btn btn-danger" href="delete.php?type=consu&ID=<?php echo $row['ID_CONSU']; ?>">Delete</a></td>
 
                     </tr>                       
 
